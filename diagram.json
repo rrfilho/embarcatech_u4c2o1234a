@@ -3,7 +3,7 @@
   "author": "Embarcatech - subgrupo 2 (mentor Luan)",
   "editor": "wokwi",
   "parts": [
-    { "type": "board-pi-pico-w", "id": "pico", "top": -32.05, "left": 176.35, "attrs": {} },
+    { "type": "board-pi-pico-w", "id": "pico", "top": -32.05, "left": 176.35, "attrs": { "builder": "pico-sdk" } },
     {
       "type": "wokwi-membrane-keypad",
       "id": "keypad1",
