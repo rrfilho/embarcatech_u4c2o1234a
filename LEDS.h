@@ -15,7 +15,7 @@ void init_led(void){
     gpio_init(LED_RED);
     gpio_set_dir(LED_RED, GPIO_OUT);
 }
-
+//acender os leds passar o parametro tipo char
 void acender_led(char keypad_key){
     switch(keypad_key){
         case '1': gpio_put(LED_RED, true); break;
