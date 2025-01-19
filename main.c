@@ -5,7 +5,7 @@ int main() {
     start_buzzer(); 
 
     while (true) {
-        char key = keypad_leitura();  // Lê a tecla pressionada do teclado  ========== KEYPAD_LEITURA ESTA COMENTADO NO BUZZER.H
+        char key = keypad_leitura();  // Lê a tecla pressionada do teclado ==== FUNÇÃO Keypad_leitura() apagada
         if (key) {
             ativa_buzzer(key);  // Ativa o buzzer na tecla pressionada
         }
