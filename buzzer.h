@@ -1,9 +1,46 @@
 #ifndef BUZZER_H
 #define BUZZER_H
 
-// Declaração das funções do buzzer
-void buzzer_frequencia(uint pin, uint frequencia);
-void init_buzzer(uint pin, uint frequencia, uint duracao);
-void teclado_opcao(char key);
+#include <stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/pwm.h"
+#include "hardware/clocks.h"
+
+#define BUZZER 21
+
+
+void start_buzzer() {
+    gpio_set_function(BUZZER, GPIO_FUNC_PWM);  // Pino PWM para Alterar TONE do Buzzer
+    uint slice_num = pwm_gpio_to_slice_num(BUZZER);
+    pwm_config config = pwm_get_default_config();
+    pwm_init(slice_num, &config, true);  // Inicializa o PWM no slice
+    pwm_set_gpio_level(BUZZER, 0);   // Desliga o Buzzer
+}
+
+
+void ativa_buzzer(char key) {
+    uint slice_num = pwm_gpio_to_slice_num(BUZZER);
+    uint freq = 0; 
+    
+    if (key == 'A') {
+        freq = 2500;
+    } else if (key == 'B') {
+        freq = 5000;
+    } else if (key == 'C') {
+        freq = 7500;
+    } else if (key == 'D') {
+        freq = 10000;
+    } else {
+        return;  // Tecla invalida
+    }
+
+
+    pwm_config config = pwm_get_default_config();
+    pwm_config_set_clkdiv(&config, clock_get_hz(clk_sys) / (freq * 4096));
+    pwm_init(slice_num, &config, true);  
+    pwm_set_gpio_level(BUZZER, 32768);  
+    sleep_ms(500);  
+    pwm_set_gpio_level(BUZZER, 0);  
+}
 
 #endif
