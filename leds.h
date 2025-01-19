@@ -1,11 +1,10 @@
 #include "pico/stdlib.h"
-#include "hardware/timer.h"
 
 #define LED_GREEN 11
 #define LED_BLUE 12
 #define LED_RED 13
 
-void init_led(void){
+void init_leds(void){
     gpio_init(LED_BLUE);
     gpio_set_dir(LED_BLUE, GPIO_OUT);
     gpio_init(LED_GREEN);
@@ -29,6 +28,6 @@ void leds_for_key(char keypad_key){
         case '5': set_led_array(true, false, true); break;
         case '6': set_led_array(false, true, true); break;
         case '7': set_led_array(true, true, true); break;
-        default: 
+        default: set_led_array(false, false, false);
     }    
 }
