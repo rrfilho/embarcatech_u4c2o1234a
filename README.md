@@ -5,5 +5,7 @@ Para cobrir os requisitos estabelecidos nas instruções da **[Tarefa 1 U4C2](ht
 
 <img src="keypad.png" alt="Keypad">
 
+ **[Link do vídeo](https://drive.google.com/file/d/1M0GMij05nkDtDQyBv4DyMigZ-82C6WGJ/view)**
+
 # Pré-requisitos
 - Ter acesso  ao ambiente Wokwi.com
